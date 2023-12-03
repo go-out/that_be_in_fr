@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no" />
+  <title>that_be_in_fr</title>
+  <meta name="description" content="from May 10 to June 5, 2018">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" rel="stylesheet">
+  <link href="index.css" rel="stylesheet" />
+  <style>
+  #button,
+  #listing {
+    font-family: 'Hina Mincho', serif;
+  }
+
+  #button {
+    font-style: italic;
+  }
+
+  button {
+    color: #000;
+  }
+
+  .radio label {
+    border: solid 2px #000;
+    color: #000;
+  }
+
+  #button,
+  #link:hover {
+    background: transparent;
+    color: #fff;
+    text-shadow:
+    1px 1px 0 #000,
+    2px 2px 0 #000,
+    3px 3px 0 #000,
+    4px 4px 0 #000,
+    5px 5px 0 #000,
+    6px 6px 0 #000,
+    7px 7px 0 #000,
+    8px 8px 0 #000,
+    9px 9px 0 #000;
+    text-stroke: 0.055rem #000;
+    -webkit-text-stroke: 0.055rem #000;
+  }
+
+  .marker {
+    box-shadow:
+    1px 1px 0 #000,
+    2px 2px 0 #000,
+    3px 3px 0 #000,
+    4px 4px 0 #000,
+    5px 5px 0 #000;
+  }
+
+  #listing {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  #listing section * {
+    color: #000;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  #button:hover,
+  .radio label:hover,
+  .radio input[type=radio]:checked + label,
+  #link {
+    color: #fff;
+    background: #ccc;
+  }
+
+  #listing #title {
+    color: #fff;
+    text-stroke: 0.075rem #000;
+    -webkit-text-stroke: 0.075rem #000;
+  }
+
+  #close {
+    text-shadow:
+    1px 1px 0 #fff,
+    2px 2px 0 #fff,
+    3px 3px 0 #fff,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  }
+
+  #listing section {
+    text-shadow:
+    1px 1px 0 #fff,
+    2px 2px 0 #fff;
+  }
+
+  .marker {
+    background: #fff;
+    border: 2px #000 solid;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 33.333vw;
+    height: 33.333vw;
+    max-width: 175px;
+    max-height: 175px;
+  }
+  </style>
+  <link rel="icon" href="cover.jpg">
+</head>
+<body>
+  <h1 id="button">that_be_in_fr</h1>
+  <main id="map"></main>
+  <main id="listing" hidden>
+    <button id="close" type="button" onclick="ChangeHidden()">×</button>
+    <h2 id="title">that_be_in_fr</h2>
+    <section id="description">from May 10 to June 5, 2018</section>
+  </main>
+
+  <dialog id="modal">
+    <section class="org radio">
+      <b>カテゴリー</b>
+      <br/>
+      <input type="radio" name="tag" id="art" value="art">
+      <label for="art">文化施設</label>
+      <input type="radio" name="tag" id="tour" value="tour">
+      <label for="tour">観光地</label>
+      <input type="radio" name="tag" id="food" value="food">
+      <label for="food">飲食</label>
+      <input type="radio" name="tag" id="nature" value="nature">
+      <label for="nature">自然</label>
+      <input type="radio" name="tag" id="all" value="all" checked>
+      <label for="all">すべて表示</label>
+    </section>
+    <section class="radio">
+      <b>エリア</b>
+      <br/>
+      <input type="radio" name="area" id="paris" value="paris" onchange="area('2.3419', '48.85786', '11')">
+      <label for="paris">パリ</label>
+      <input type="radio" name="area" id="marseille" value="marseille" onchange="area('5.36486', '43.29999', '12')">
+      <label for="marseille">マルセイユ</label>
+      <input type="radio" name="area" id="vaucluse" value="vaucluse" onchange="area('5.38322', '43.94313', '9')">
+      <label for="vaucluse">ヴォクリューズ</label>
+      <input type="radio" name="area" id="provence" value="provence" onchange="area('6.401837490526702', '43.794157145680884', '10')">
+      <label for="provence">アルプ＝ド＝オート＝プロヴァンス</label>
+      <input type="radio" name="area" id="maritimes" value="maritimes" onchange="area('7.07', '43.75', '10.5')">
+      <label for="maritimes">アルプ＝マリティーム</label>
+      <input type="radio" name="area" id="coursegoules" value="coursegoules" onchange="area('7.275017817776245', '43.69588804624814', '14.5')">
+      <label for="coursegoules">ニース</label>
+    </section>
+    <button type="button" id="closeButton">閉じる</button>
+  </dialog>
+
+  <script src="index.js"></script>
+  <script type="text/javascript">
+  mapboxgl.accessToken = 'pk.eyJ1IjoicGVodSIsImEiOiJja3R4Y3diNmIybTg5Mm9waWgwYTdsc3FyIn0.lVvnPZ3aa6332EaWJIxPaQ';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/satellite-streets-v11',
+    center: [4.75, 46.125],
+    zoom: 5.25
+  });
+  map.addControl(
+    new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      // デバイスの位置の変更に応じて位置情報を更新
+      trackUserLocation: true,
+      // デバイスが向いている方向を矢印で描画
+      showUserHeading: true
+    })
+  );
+  map.addControl(new mapboxgl.NavigationControl());
+
+  const listing = document.querySelector('#listing'),
+  title = document.querySelector('#title'),
+  description = document.querySelector('#description'),
+  img = document.querySelector('#img');
+
+  // add markers to map
+  for (const marker of geojson.features) {
+    // create a HTML element for each feature
+    const el = document.createElement('div');
+    el.className = 'marker';
+    el.setAttribute('data-tag', marker.properties.tag);
+    el.style.backgroundImage = `url('${marker.properties.img}')`;
+
+    // make a marker for each feature and add to the map
+    new mapboxgl.Marker(el)
+    .setLngLat(marker.geometry.coordinates)
+    .addTo(map);
+    el.addEventListener('click', (e) => {
+      ChangeHidden()
+      title.innerText = marker.properties.title;
+      description.innerHTML = marker.properties.description;
+      listing.style.backgroundImage = `url('${marker.properties.img}')`;
+
+      map.flyTo({
+        center: marker.geometry.coordinates,
+        zoom: 17.5
+      })
+    })
+  }
+
+  function area(lng = '', lat = '', zoom = '') {
+    map.flyTo({
+      center: [lng, lat],
+      zoom: zoom
+    })
+  }
+
+  const close = document.querySelector('#close');
+  close.addEventListener('click', (e) => {
+    map.flyTo({
+      zoom: 15
+    })
+  })
+
+  function ChangeHidden() {
+    const mainAll = document.querySelectorAll('main');
+    mainAll.forEach(main => {
+      if (main.hidden == false) {
+        main.hidden = true;
+        main.style.pointerEvents = "none";
+        main.style.userSelect = "none";
+      } else {
+        main.hidden = false;
+        main.style.pointerEvents = "auto";
+        main.style.userSelect = "auto";
+      }
+    });
+  };
+
+  const dialogModal = document.querySelector('#modal');
+  const openModal = document.querySelector('#button');
+
+  openModal.addEventListener('click', function onModal() {
+    if (typeof dialogModal.showModal === "function") {
+      dialogModal.showModal();
+    } else {
+      alert("The dialog API is not supported by this browser");
+    }
+  });
+
+  const closeButton = document.querySelector('#closeButton');
+  closeButton.addEventListener('click', () => {
+    dialogModal.close();
+  });
+  </script>
+  <script src="org.js"></script>
+</body>
+</html>
