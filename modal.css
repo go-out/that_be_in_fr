@@ -1,0 +1,171 @@
+html {
+    height: -webkit-fill-available;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#modal ol {
+    list-style: inside none;
+}
+
+#modal ol[hidden],
+#nav button[hidden] {
+    display: none;
+}
+
+#modal ol img,
+#modal ol video {
+    display: block;
+}
+
+#nav button {
+    display: grid;
+    place-content: center;
+}
+
+#modal ol,
+#nav {
+    display: flex;
+}
+
+#nav {
+    gap: 0.5rem;
+}
+
+#modal button {
+    font-size: 250%;
+}
+
+#nav button {
+    font-size: 200%;
+}
+
+#modal #title,
+#modal button {
+    color: #000;
+    text-shadow:
+        1px 1px 0 #fff,
+        2px 2px 0 #fff,
+        3px 3px 0 #fff,
+        4px 4px 0 #fff,
+        5px 5px 0 #fff;
+}
+
+#modal p {
+    color: #000;
+    text-shadow:
+        1px 1px 0 #fff,
+        2px 2px 0 #fff;
+}
+
+#modal p u {
+    color: #111;
+    background-color: #fff;
+    text-decoration: none;
+}
+
+#modal {
+    border: solid 0.25rem #000;
+    border-radius: 0.5rem;
+    position: relative;
+}
+
+#modal,
+#modal ol,
+#modal ol li,
+#modal ol img,
+#modal ol video {
+    padding: 0;
+}
+
+#nav,
+#nav button,
+#modal section {
+    padding: 0.5rem;
+}
+
+h1,
+#modal #title,
+#modal ol,
+#modal ol li,
+#modal ol img,
+#modal ol video {
+    margin: 0;
+}
+
+@media screen and (orientation: portrait) {
+    #modal section {
+        position: sticky;
+    }
+
+    #modal ol img,
+    #modal ol video {
+        width: 100%;
+        height: auto;
+    }
+
+    #modal ol {
+        flex-flow: column;
+    }
+
+    #modal {
+        width: 90dvw;
+        min-height: 90dvw;
+        max-height: 90dvh;
+        overflow-y: auto;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    #modal section {
+        position: absolute;
+    }
+
+    #modal ol img,
+    #modal ol video {
+        width: auto;
+        height: 90dvh;
+    }
+
+    #modal ol {
+        min-width: 90dvh;
+        max-width: 90vw;
+        overflow-x: auto;
+    }
+}
+
+#modal button {
+    display: block;
+    float: right;
+    z-index: 10;
+}
+
+#modal section {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+#modal section,
+#nav {
+    z-index: 2;
+}
+
+#modal::backdrop {
+    backdrop-filter: grayscale(100%);
+}
+
+#nav button {
+    color: #111;
+    width: 3.21rem;
+    height: 3.21rem;
+    border-radius: 50%;
+}

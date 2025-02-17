@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="../cover.jpg">
+    <title>The Catacombs | A veritable labyrinth in the heart of underground Paris</title>
+    <meta name="description" content="カタコンブ・ドゥ・パリ | パリ市内全域の地下を張りめぐる世界最大の地下墓地。">
+    <style>
+        body {
+            display: grid;
+            place-content: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(https://ia600605.us.archive.org/10/items/that_be_in_fr/that_be_in_fr/Paris/Catacombes/cover.JPG);
+            min-height: calc(100dvh - 1rem);
+        }
+    </style>
+    <link rel="stylesheet" href="../modal.css">
+</head>
+
+<body>
+    <article id="modal">
+        <section>
+            <h1 id="title">カタコンブ・ドゥ・パリ</h1>
+            <p id="description">パリ市内全域の地下を張りめぐる世界最大の地下墓地。</p>
+        </section>
+    </article>
+
+    <nav id="nav">
+        <button id="past">←</button>
+        <button id="next">→</button>
+    </nav>
+
+    <script src="../modal.js"></script>
+    <script>
+        let archiveIndex = {
+            "archive": "https://ia600605.us.archive.org/10/items/that_be_in_fr/that_be_in_fr/Paris/Catacombes",
+            "index": [
+                {
+                    "title": "Enter",
+                    "description": "__",
+                    "image": [
+                        ["img", "/001/001.JPG"],
+                        ["img", "/001/002.JPG"],
+                        ["img", "/001/003.JPG"],
+                        ["img", "/001/004.JPG"],
+                        ["img", "/001/005.JPG"],
+                        ["img", "/001/006.JPG"],
+                        ["img", "/001/007.JPG"],
+                        ["img", "/001/008.JPG"],
+                        ["img", "/001/009.JPG"],
+                        ["img", "/001/000.JPG"]
+                    ]
+                },
+                {
+                    "title": "Guide",
+                    "description": "__",
+                    "image": [
+                        ["img", "/002/001.JPG"],
+                        ["img", "/002/002.JPG"],
+                        ["img", "/002/004.JPG"],
+                        ["video", "/002/003.mp4"],
+                        ["video", "/002/004.mp4"],
+                        ["video", "/002/005.mp4"],
+                        ["img", "/002/003.JPG"],
+                        ["img", "/002/006.JPG"],
+                        ["img", "/002/000.JPG"],
+                    ]
+                },
+                {
+                    "title": "Underground",
+                    "description": "__",
+                    "image": [
+                        ["img", "/005/001.JPG"],
+                        ["img", "/005/002.JPG"],
+                        ["img", "/005/005.JPG"],
+                        ["img", "/005/004.JPG"],
+                        ["img", "/005/003.JPG"]
+                    ]
+                },
+                {
+                    "title": "Wall",
+                    "description": "__",
+                    "image": [
+                        ["img", "/003/002.JPG"],
+                        ["img", "/003/003.JPG"],
+                        ["img", "/003/004.JPG"],
+                        ["img", "/003/005.JPG"],
+                        ["img", "/003/006.JPG"],
+                        ["img", "/003/007.JPG"],
+                        ["img", "/003/000.JPG"],
+                        ["img", "/003/001.JPG"]
+                    ]
+                },
+                {
+                    "title": "Grafitti",
+                    "description": "__",
+                    "image": [
+                        ["img", "/004/002.JPG"],
+                        ["img", "/004/003.JPG"],
+                        ["img", "/004/004.JPG"],
+                        ["img", "/004/005.JPG"],
+                        ["img", "/004/006.JPG"],
+                        ["img", "/004/007.JPG"],
+                        ["img", "/004/008.JPG"],
+                        ["img", "/004/000.JPG"],
+                        ["img", "/004/001.JPG"]
+                    ]
+                },
+                {
+                    "title": "Borns",
+                    "description": "__",
+                    "image": [
+                        ["img", "/006/000.JPG"],
+                        ["img", "/006/001.JPG"],
+                        ["img", "/006/003.JPG"],
+                        ["img", "/006/004.JPG"],
+                        ["img", "/006/005.JPG"],
+                        ["img", "/006/002.JPG"],
+                        ["img", "/006/006.JPG"],
+                        ["img", "/006/007.JPG"]
+                    ]
+                },
+                {
+                    "title": "Chair",
+                    "description": "___",
+                    "image": [
+                        ["img", "/007/000.JPG"],
+                        ["img", "/007/002.JPG"],
+                        ["img", "/007/001.JPG"],
+                        ["img", "/007/003.JPG"],
+                        ["img", "/007/004.JPG"]
+                    ]
+                },
+                {
+                    "title": "Room 1",
+                    "description": "__",
+                    "image": [
+                        ["img", "/008/001.JPG"],
+                        ["img", "/008/004.JPG"],
+                        ["img", "/008/005.JPG"],
+                        ["img", "/008/006.JPG"],
+                        ["img", "/008/007.JPG"],
+                        ["img", "/008/003.JPG"],
+                        ["img", "/008/008.JPG"],
+                        ["video", "/008/009.mp4"],
+                        ["img", "/008/011.JPG"],
+                        ["img", "/008/010.JPG"],
+                        ["img", "/008/012.JPG"],
+                        ["img", "/008/013.JPG"],
+                        ["img", "/008/014.JPG"],
+                        ["img", "/008/002.JPG"],
+                        ["img", "/008/000.JPG"]
+                    ]
+                },
+                {
+                    "title": "Room 2",
+                    "description": "__",
+                    "image": [
+                        ["img", "/009/001.JPG"],
+                        ["img", "/009/002.JPG"],
+                        ["img", "/009/003.JPG"],
+                        ["img", "/009/004.JPG"],
+                        ["img", "/009/005.JPG"]
+                    ]
+                },
+                {
+                    "title": "Room 3",
+                    "description": "__",
+                    "image": [
+                        ["img", "/010/000.JPG"],
+                        ["img", "/010/001.JPG"],
+                        ["img", "/010/002.JPG"],
+                        ["img", "/010/003.JPG"],
+                        ["img", "/010/004.JPG"],
+                        ["img", "/010/005.JPG"],
+                        ["img", "/010/006.JPG"],
+                        ["img", "/010/007.JPG"],
+                        ["img", "/010/008.JPG"],
+                        ["img", "/010/009.JPG"]
+                    ]
+                },
+                {
+                    "title": "Shining",
+                    "description": "__",
+                    "image": [
+                        ["img", "/011/003.JPG"],
+                        ["video", "/011/000.mp4"],
+                        ["video", "/011/002.mp4"],
+                        ["img", "/011/001.JPG"]
+                    ]
+                },
+                {
+                    "title": "Exhibition",
+                    "description": "__",
+                    "image": [
+                        ["img", "/012/001.JPG"],
+                        ["img", "/012/002.JPG"],
+                        ["img", "/012/003.JPG"],
+                        ["img", "/012/004.JPG"],
+                    ]
+                },
+                {
+                    "title": "End",
+                    "description": "__",
+                    "image": [
+                        ["img", "/013/001.JPG"],
+                        ["img", "/013/002.JPG"],
+                        ["img", "/013/003.JPG"],
+                        ["img", "/013/004.JPG"],
+                        ["img", "/013/005.JPG"],
+                        ["img", "/013/006.JPG"],
+                        ["video", "/013/000.mp4"],
+                        ["img", "/013/007.JPG"],
+                        ["img", "/013/008.JPG"],
+                    ]
+                },
+                {
+                    "title": "__",
+                    "description": "__",
+                    "image": [
+                        ["img", "/014 End/000.JPG"],
+                        ["img", "/014 End/001.JPG"],
+                        ["video", "/014 End/002.mp4"],
+                        ["img", "/014 End/003.JPG"],
+                        ["img", "/014 End/004.JPG"],
+                        ["img", "/014 End/005.JPG"],
+                    ]
+                }
+            ]
+        };
+        archiveJson(archiveIndex);
+    </script>
+</body>
+
+</html>
